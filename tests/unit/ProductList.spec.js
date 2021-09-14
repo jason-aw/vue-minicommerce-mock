@@ -8,13 +8,13 @@ localVue.use(Vuex)
 
 describe('ProductList.vue', () => {
   it('renders props.msg when passed', () => {
-    const msg = 'adsdasdasdasd'
+    const msg = 'Product List Title'
     const wrapper = shallowMount(ProductList, {
       propsData: { msg },
       stubs: ['router-link'],
       store
     })
-    expect(wrapper.text()).toMatch(msg)
+    expect(wrapper.text()).toMatch("Product List Title")
   })
   
 })

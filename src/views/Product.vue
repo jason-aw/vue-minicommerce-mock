@@ -2,11 +2,11 @@
   <div class="about">
     <div class="product-wrapper">
         <div class="product-image">
-          <img src="https://via.placeholder.com/300">
+          <img :src="product.image">
         </div>
         <div class="product-info">
-          <h1>Product title</h1>
-          <h5>Rp.100.000</h5>
+          <h1>{{ product.title }}</h1>
+          <h5>{{ product.price }}</h5>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Id volutpat lacus laoreet non curabitur. Neque sodales ut etiam sit amet nisl. Porttitor lacus luctus accumsan tortor.</p>
           <button @click="beli()">Beli</button>
         </div>
@@ -45,14 +45,15 @@
 </style>
 
 <script>
-import { mapActions} from 'vuex'
+import { mapActions, mapGetters } from 'vuex'
 
 export default {
   name: 'Product',
   computed: {
     productId(){
       return this.$route.params.product_id
-    }
+    },
+    ...mapGetters(['product']),
   },
   created() {
     this.getProduct({
